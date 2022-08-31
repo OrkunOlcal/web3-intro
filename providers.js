@@ -28,7 +28,6 @@ console.log("vitalik.eth has:", ethers.utils.formatEther(vitalikBalance));
 console.log("1.5 ETH is:", ethers.utils.parseEther("1.5").toString(), "wei");
 console.log("1.5 ETH is:", ethers.utils.formatEther(ethers.utils.parseEther("1.5")));
 
-const vitalikBalance = await provider.getBalance("vitalik.eth");
 let sanfordBalance = await provider.getBalance("sanfordstout.eth");
 
 // sanfordBalance = sanfordBalance.add(ethers.utils.parseEther("5000"));
