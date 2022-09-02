@@ -20,7 +20,7 @@ import {BigNumber, ethers} from "ethers";
 // }
 //
 // // get my wallet through private key
-// const myWallet = new ethers.Wallet(process.env.MY_WALLET_PRIVATE_KEY);
+// const myWallet = new ethers.Wallet(process.env.MY_WALLET_CREATE_TEST_PRIVATE_KEY);
 // console.log("My wallet address:", myWallet.address);
 // console.log("Is signer?:", myWallet._isSigner);
 //
@@ -39,7 +39,7 @@ const mainnetInfuraUrl = `https://mainnet.infura.io/v3/${process.env.INFURA_KEY}
 const rinkebyInfuraProvider = new ethers.providers.JsonRpcProvider(rinkebyInfuraUrl);
 const mainnetInfuraProvider = new ethers.providers.JsonRpcProvider(mainnetInfuraUrl);
 
-const signer = new ethers.Wallet(process.env.MY_WALLET_PRIVATE_KEY, rinkebyInfuraProvider);
+const signer = new ethers.Wallet(process.env.MY_WALLET_CREATE_TEST_PRIVATE_KEY, rinkebyInfuraProvider);
 console.log(signer.address);
 
 const myBalance = await rinkebyInfuraProvider.getBalance(signer.address);
@@ -52,7 +52,7 @@ console.log("Rinkeby balance divided 10:", ethers.utils.formatEther(myBalance.di
 // console.log("Sending ETH to", sandfordAddress);
 
 const tx = await signer.sendTransaction({
-    to: process.env.MY_METAMASK_WALLET_ADDRESS,
+    to: process.env.MY_TEST_METAMASK_WALLET_ADDRESS,
     value: myBalance.div(BigNumber.from(10))
 });
 
