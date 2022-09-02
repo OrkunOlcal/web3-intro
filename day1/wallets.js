@@ -1,6 +1,7 @@
 import "dotenv/config";
 import {BigNumber, ethers} from "ethers";
 
+
 // // create a random wallet
 // const randomWallet = ethers.Wallet.createRandom();
 // console.log("address:", randomWallet.address);
@@ -33,16 +34,22 @@ import {BigNumber, ethers} from "ethers";
 // console.log("signerAddress:", signerAddress);
 // console.log("signerAddress is matching:", signerAddress === myWallet.address);
 
-const infuraUrl = `https://rinkeby.infura.io/v3/${process.env.INFURA_KEY}`;
-const provider = new ethers.providers.JsonRpcProvider(infuraUrl);
+const rinkebyInfuraUrl = `https://rinkeby.infura.io/v3/${process.env.INFURA_KEY}`;
+const mainnetInfuraUrl = `https://mainnet.infura.io/v3/${process.env.INFURA_KEY}`;
+const rinkebyInfuraProvider = new ethers.providers.JsonRpcProvider(rinkebyInfuraUrl);
+const mainnetInfuraProvider = new ethers.providers.JsonRpcProvider(mainnetInfuraUrl);
 
-const signer = new ethers.Wallet(process.env.MY_WALLET_PRIVATE_KEY, provider);
+const signer = new ethers.Wallet(process.env.MY_WALLET_PRIVATE_KEY, rinkebyInfuraProvider);
 console.log(signer.address);
 
-const myBalance = await provider.getBalance(signer.address);
+const myBalance = await rinkebyInfuraProvider.getBalance(signer.address);
 
 console.log("Rinkeby balance:", ethers.utils.formatEther(myBalance));
 console.log("Rinkeby balance divided 10:", ethers.utils.formatEther(myBalance.div(BigNumber.from(10))));
+
+// here used mainnet because we want to get address by using ENS
+// const sandfordAddress = await mainnetInfuraProvider.resolveName("sanfordstout.eth");
+// console.log("Sending ETH to", sandfordAddress);
 
 const tx = await signer.sendTransaction({
     to: process.env.MY_METAMASK_WALLET_ADDRESS,

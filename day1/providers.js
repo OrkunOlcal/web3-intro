@@ -1,6 +1,7 @@
 import "dotenv/config";
 import {ethers} from "ethers";
 
+
 const infuraUrl = `https://mainnet.infura.io/v3/${process.env.INFURA_KEY}`;
 
 // providers are for reading data from the blockchain we need assigner to write or send any transactions

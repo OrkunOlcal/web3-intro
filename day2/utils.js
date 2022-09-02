@@ -5,7 +5,6 @@ import * as fs from "fs";
 
 const getProvider = (mainnet = false) => {
     const providerUrl = mainnet ? `https://mainnet.infura.io/v3/${process.env.INFURA_KEY}` : `https://rinkeby.infura.io/v3/${process.env.INFURA_KEY}`;
-
     return new ethers.providers.JsonRpcProvider(providerUrl);
 };
 
