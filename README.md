@@ -23,3 +23,7 @@
 **For Contract Write:**
 
 * run `node day2/contract_write.js` to run contract write script
+
+**For Contract Calldata:**
+
+* run `node day2/contract_calldata.js` to run contract calldata script
