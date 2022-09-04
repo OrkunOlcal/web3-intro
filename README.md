@@ -6,8 +6,16 @@
 
 **For Providers:**
 
-* run `node provider.js` to get run provider examples
+* run `day1/node provider.js` to run provider example scripts
 
 **For Wallets:**
 
-* run `node wallets.js` to get run wallet examples
+* run `day1/node wallets.js` to run wallet example scripts
+
+**For SendETH:**
+
+* run `node day2/sendETH.js` to run send ETH script
+
+**For Contract Read:**
+
+* run `node day2/contract_read.js` to run contract read script
