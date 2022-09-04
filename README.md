@@ -19,3 +19,7 @@
 **For Contract Read:**
 
 * run `node day2/contract_read.js` to run contract read script
+
+**For Contract Write:**
+
+* run `node day2/contract_write.js` to run contract write script
