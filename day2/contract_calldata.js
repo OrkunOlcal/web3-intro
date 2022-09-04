@@ -13,8 +13,11 @@ console.log("Minting NFT!");
 const mintTx = await rinkebySigner.sendTransaction({
     to: sanfordNFTAddress,
     value: mintPrice,
-    data: mintCalldata
+    data: mintCalldata,
+    nonce: 3,
+    gasPrice: 1000000000
 });
+// if the transaction stuck you can speed it up using same nonce and higher gas price
 
 console.log("TX sent:", mintTx.hash);
 
