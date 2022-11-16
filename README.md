@@ -6,11 +6,11 @@
 
 **For Providers:**
 
-* run `day1/node provider.js` to run provider example scripts
+* run `node day1/provider.js` to run provider example scripts
 
 **For Wallets:**
 
-* run `day1/node wallets.js` to run wallet example scripts
+* run `node day1/wallets.js` to run wallet example scripts
 
 **For SendETH:**
 
