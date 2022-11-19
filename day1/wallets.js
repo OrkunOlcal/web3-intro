@@ -34,18 +34,20 @@ import {BigNumber, ethers} from "ethers";
 // console.log("signerAddress:", signerAddress);
 // console.log("signerAddress is matching:", signerAddress === myWallet.address);
 
-const rinkebyInfuraUrl = `https://rinkeby.infura.io/v3/${process.env.INFURA_KEY}`;
+// const rinkebyInfuraUrl = `https://rinkeby.infura.io/v3/${process.env.INFURA_KEY}`;
+const goerliInfuraUrl = `https://goerli.infura.io/v3/${process.env.INFURA_KEY}`;
 const mainnetInfuraUrl = `https://mainnet.infura.io/v3/${process.env.INFURA_KEY}`;
-const rinkebyInfuraProvider = new ethers.providers.JsonRpcProvider(rinkebyInfuraUrl);
+// const rinkebyInfuraProvider = new ethers.providers.JsonRpcProvider(rinkebyInfuraUrl);
+const goerliInfuraProvider = new ethers.providers.JsonRpcProvider(goerliInfuraUrl);
 const mainnetInfuraProvider = new ethers.providers.JsonRpcProvider(mainnetInfuraUrl);
 
-const signer = new ethers.Wallet(process.env.MY_WALLET_CREATE_TEST_PRIVATE_KEY, rinkebyInfuraProvider);
+const signer = new ethers.Wallet(process.env.SIGNER_WALLET_PRIVATE_KEY, goerliInfuraProvider);
 console.log(signer.address);
 
-const myBalance = await rinkebyInfuraProvider.getBalance(signer.address);
+const myBalance = await goerliInfuraProvider.getBalance(signer.address);
 
-console.log("Rinkeby balance:", ethers.utils.formatEther(myBalance));
-console.log("Rinkeby balance divided 10:", ethers.utils.formatEther(myBalance.div(BigNumber.from(10))));
+console.log("Goerli balance:", ethers.utils.formatEther(myBalance));
+console.log("Goerli balance divided 10:", ethers.utils.formatEther(myBalance.div(BigNumber.from(10))));
 
 // here used mainnet because we want to get address by using ENS
 // const sandfordAddress = await mainnetInfuraProvider.resolveName("sanfordstout.eth");

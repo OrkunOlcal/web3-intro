@@ -1,20 +1,20 @@
 import {BigNumber, ethers} from "ethers";
 import {getProvider, getSigner} from "./utils.js";
 
-const rinkebyInfuraProvider = getProvider();
-const rinkebySigner = getSigner();
+const goerliInfuraProvider = getProvider();
+const goerliSigner = getSigner();
 
-const myBalance = await rinkebyInfuraProvider.getBalance(rinkebySigner.address);
+const myBalance = await goerliInfuraProvider.getBalance(goerliSigner.address);
 
-console.log("Rinkeby address and balance:", rinkebySigner.address, ethers.utils.formatEther(myBalance), "ETH");
+console.log("Goerli address and balance:", goerliSigner.address, ethers.utils.formatEther(myBalance), "ETH");
 // process.exit();
 
-const tx = await rinkebySigner.sendTransaction({
+const tx = await goerliSigner.sendTransaction({
     to: process.env.MY_TEST_METAMASK_WALLET_ADDRESS,
     value: myBalance.div(BigNumber.from(10))
 });
 
-console.log("Transaction sent!", `https://rinkeby.etherscan.io/tx/${tx.hash}`);
+console.log("Transaction sent!", `https://goerli.etherscan.io/tx/${tx.hash}`);
 console.log("Transaction details:", tx);
 
 await tx.wait();
